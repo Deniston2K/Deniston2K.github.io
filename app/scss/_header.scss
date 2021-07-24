@@ -1,0 +1,135 @@
+.header {
+
+    // Hamburger Open styles
+    &.open {
+
+        .header__toggle {
+            > span:first-child {
+                transform: rotate(45deg);
+            }
+
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+
+            > span:last-child {
+                transform: rotate(-45deg);
+            }
+       }
+    }
+
+    .overlay {
+        // display: none;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0 ;
+        right: 0;
+        background-image: linear-gradient($darkBlue, transparent);
+        z-index: 1;
+    }
+
+
+    nav {
+        position: relative;
+        background-color: $white;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        z-index: 2;
+    }
+
+    &__logo {
+
+        display: flex;
+        img {
+            margin-top: 0.5rem;
+            width: 5.8125rem;
+            height: 4.5rem;
+        }
+
+        p {
+            margin-top: 2rem;
+            color: black;
+        }
+    }
+
+    &__toggle { //Mobile Menu Toggle
+
+        > span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background-color: $darkBlue;
+            transition: all 300ms ease-in-out;
+            transform-origin: 3.5px 0.5px ;
+            // margin: 3px;
+
+            &:not(:last-child){
+                margin-bottom: 5px;
+            }
+        }
+        
+    }
+
+    &__menu {
+        position: absolute;
+        width: calc(100% - 3rem);
+        left: 50%;
+        transform: translateX(-50%);
+        background: $white;
+        margin-top: 1.5rem;
+        padding: 1.625rem;
+        border-radius: 5px;
+        z-index: 1;
+
+        a {
+            display: block;
+            padding: 0.625rem;
+            color: $darkBlue;
+            text-align: center;
+        }
+    }
+
+    &__links {
+        // border: 1px solid red;
+        a {
+            position: relative;
+            font-size: $font-sm;
+            color: $grayishBlue;
+            transition: color 300ms ease-in-out;
+        
+
+            &:not(:last-child){
+                margin-right: 32px;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 5px;
+                left: 0;
+                right: 0;
+                bottom: -42px;
+                background: $limeGreen;
+                opacity: 0;
+                transition: opacity 300ms ease-in;
+            }
+            &:hover {
+                color: $darkBlue;
+                
+                &::before{
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+
+// rem - relative units is better than px
+// px to rem = px/rem
